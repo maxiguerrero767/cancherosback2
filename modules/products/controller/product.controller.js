@@ -1,3 +1,4 @@
+
 const Product = require('./../model/product.model');
 
 const getAll = async (req, res) => {
@@ -11,7 +12,17 @@ const getAll = async (req, res) => {
 
 const create = async (req, res) => {
   try {
-    const newProduct = new Product(req.body);
+    const productData = {
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      stock: req.body.stock,
+      category: req.body.category,
+      sizes: req.body.sizes, 
+      imageUrl: req.file ? `/uploads/${req.file.filename}` : null
+    };
+
+    const newProduct = new Product(productData);
     await newProduct.save();
     res.status(201).json(newProduct);
   } catch (error) {
@@ -21,7 +32,20 @@ const create = async (req, res) => {
 
 const update = async (req, res) => {
   try {
-    const updated = await Product.findByIdAndUpdate(req.params.id, req.body, { new: true });
+    const productData = {
+      name: req.body.name,
+      description: req.body.description,
+      price: req.body.price,
+      stock: req.body.stock,
+      category: req.body.category,
+      sizes: req.body.sizes,
+    };
+
+    if (req.file) {
+      productData.imageUrl = `/uploads/${req.file.filename}`;
+    }
+
+    const updated = await Product.findByIdAndUpdate(req.params.id, productData, { new: true });
     res.json(updated);
   } catch (error) {
     res.status(400).json({ message: error.message });

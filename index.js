@@ -14,7 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 app.use('/api/products', productRoutes);
-
+app.use(express.static('public')); 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
   console.log(`Servidor Modular corriendo en puerto ${PORT}`);

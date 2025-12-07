@@ -6,9 +6,21 @@ const productSchema = new mongoose.Schema({
   price: { type: Number, required: true },
   stock: { type: Number, default: 0 },
   imageUrl: { type: String },
-  active: { type: Boolean, default: true }
+  active: { type: Boolean, default: true },
+   category: { 
+    type: String, 
+    required: true, 
+    enum: ['General', 'Hombre', 'Mujer', 'Ninios', 'Accesorios'],
+    default: 'General'
+  },
+  sizes: { 
+    type: String, 
+    default: 'Único'
+  },
+ active: { type: Boolean, default: true }
 }, {
   timestamps: true
 });
+
 
 module.exports = mongoose.model('Product', productSchema);
