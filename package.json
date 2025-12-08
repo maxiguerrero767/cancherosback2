@@ -1,15 +1,15 @@
 {
   "name": "cancherosback",
   "version": "1.0.0",
-  "description": "",
+  "description": "Backend para la aplicación Cancheros",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "authors": "Paula Cabana, Jose Ignacio Ledesma,Maximiliano Guerrero,Joaquin Albornoz Bresla",
   "license": "ISC",
-  "keywords": [],
+  "keywords": ["rutas","controladores","BD mongoDB","express","middlewares"],
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "bootstrap": "^5.3.8",
