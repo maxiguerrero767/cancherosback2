@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "authors": "Paula Cabana, Jose Ignacio Ledesma,Maximiliano Guerrero,Joaquin Albornoz Bresla",
+  "authors": "Paula Cabana, Jose Ignacio Ledesma,Joaquin Albornoz Bresla,Maximiliano Guerrero,Pablo Germán Jiménez",
   "license": "ISC",
   "keywords": ["rutas","controladores","BD mongoDB","express","middlewares"],
   "dependencies": {
