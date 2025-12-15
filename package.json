@@ -5,8 +5,9 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    
     "start": "node index",
-    "dev": "node --env-file .env --watch index"
+    "dev": "node --env-file .env --watch index.js"
   },
   "authors": "Paula Cabana, Jose Ignacio Ledesma,Joaquin Albornoz Bresla,Maximiliano Guerrero,Pablo Germán Jiménez",
   "license": "ISC",
