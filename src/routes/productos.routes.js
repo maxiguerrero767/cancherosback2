@@ -2,7 +2,7 @@ import { Router } from "express";
 import multer from "multer";
 import { v2 as cloudinary } from "cloudinary";
 import { CloudinaryStorage } from "multer-storage-cloudinary";
-import {
+import {  
   obtenerProducto,
   crearProducto,
   editarProducto,
