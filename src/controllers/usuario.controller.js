@@ -4,17 +4,25 @@ import jwt from "jsonwebtoken";
 
 export const crearUsuario = async (req, res) => {
   try {
-    const { nombre, email, password, telefono } = req.body;
+    const { nombre, email, password, rol = "usuario",telefono } = req.body;
 
-    let usuario = await Usuario.findOne({ email });
-    if (usuario) {
+    let usuarioExistente = await Usuario.findOne({ email });
+    if (usuarioExistente) {
       return res.status(400).json({ mensaje: "El correo ya está registrado" });
     }
 
-    usuario = new Usuario(req.body);
+    /* usuarioExistente = new Usuario(req.body); */
 
     const salt = bcrypt.genSaltSync(10);
-    usuario.password = bcrypt.hashSync(password, salt);
+    const passwordHash = bcrypt.hashSync(password, salt);
+
+    const usuario = new Usuario({
+      nombre,
+      email,
+      password: passwordHash,
+      rol,
+      telefono
+    });
 
     await usuario.save();
     const token = jwt.sign(
