@@ -28,7 +28,7 @@ export const crearUsuario = async (req, res) => {
     const token = jwt.sign(
       { uid: usuario._id, nombre: usuario.nombre, rol: usuario.rol },
        process.env.JWT_SECRET, 
-      { expiresIn: "2h" }
+      { expiresIn: "1h" }
     );
     res.status(201).json({
       mensaje: "Usuario creado exitosamente",
@@ -62,7 +62,7 @@ export const loginUsuario = async (req, res) => {
     const token = jwt.sign(
       { uid: usuario._id, nombre: usuario.nombre, rol: usuario.rol },
        process.env.JWT_SECRET,
-      { expiresIn: "2h" }
+      { expiresIn: "1h" }
     );
 
     res.json({

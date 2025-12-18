@@ -12,8 +12,9 @@ const productSchema = new mongoose.Schema(
       required: true,
     },
     precio: {
-      type: String, // revisar con Nacho por el "$"
+      type: Number, 
       required: true,
+      min: 0 
     },
     talles: {
       type: [String],
