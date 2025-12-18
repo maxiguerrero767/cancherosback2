@@ -23,7 +23,14 @@ router.post('/registro',
     ],
     crearUsuario
 );
-router.post('/login', loginUsuario);
+router.post('/login', 
+    [
+        check('email', 'El email es obligatorio').isEmail(),
+        check('password', 'La contraseña es obligatoria').notEmpty(),
+        validarResultado
+    ],
+    loginUsuario
+);
 
 router.get('/', validarJWT, listarUsuarios);
 router.delete('/:id', validarJWT, borrarUsuario);
